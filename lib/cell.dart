@@ -1,20 +1,28 @@
 class cell {
-  bool _isOpen = false;
+  bool isOpen = false;
   // 爆弾があるか
-  bool _isMine = false;
+  bool isMine = false;
   // 周りの爆弾の数
-  int _aroundMineCnt = 0;
+  int aroundMineCnt = 0;
   // コンストラクタ
-  cell(this._isOpen, this._isMine, this._aroundMineCnt);
+  cell(this.isOpen, this.isMine, this.aroundMineCnt);
   // 初期化
   void reset() {
-    _isOpen = false;
-    _isMine = false;
-    _aroundMineCnt = 0;
+    isOpen = false;
+    isMine = false;
+    aroundMineCnt = 0;
   }
 
-  void SetMine(bool isMine) => _isMine = isMine;
+  void SetMine(bool value) {
+    isMine = value;
+    print('爆弾を設定 $value');
+  }
+
+  void SetBombCount() {
+    aroundMineCnt++;
+  }
+
   void Open() {
-    _isOpen = true;
+    isOpen = true;
   }
 }
